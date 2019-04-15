@@ -27,4 +27,9 @@ public class Person {
     public void setScore(double score) {
         this.score = score;
     }
+
+ @Override
+    public String toString(){
+        return "name: "+name+"   age: "+age +"   Score:  "+score;
+ }
 }
