@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="PersonMapper">
+<mapper namespace="Mapper.IPersonMapper">
 
-    <select id="selectByName" resultType="Person" parameterType="java.lang.String">
+    <select id="selectByName" resultType="domain.Person" parameterType="java.lang.String">
         select *
-        from Pserson
+        from person
         where name = #{name}
     </select>
 
+    <insert id="insert" parameterType="domain.Person" >
+        insert into person values(#{name},#{age},#{score});
+    </insert>
+    <update id="updateByName" parameterType="domain.Person" >
+        update person set name=#{name},age=#{age},score=#{score} where name=#{name}
+    </update>
+    <delete id="deleteByName" parameterType="java.lang.String">
+        delete from person where name=#{xxx}
+    </delete>
+    <select id="selectAll" resultType="domain.Person">
+        select * from person
+    </select>
 </mapper>
